@@ -41,7 +41,12 @@ class App extends Component {
   }
 
   getRandomCard(currentCards){
-    var card = currentCards[Math.floor(Math.random() * currentCards.length)];
+    var randomIndex = Math.floor(Math.random() * currentCards.length);
+    var card = currentCards[randomIndex];
+    if(card === this.state.currentCard){
+      this.getRandomCard(currentCards)
+    }
+
     return(card);
   }
 

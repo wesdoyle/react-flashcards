@@ -22,6 +22,7 @@ class App extends Component {
   }
 
   componentWillMount(){
+    console.log(this.app.database().ref().child('cards'))
     const currentCards = this.state.cards;
     this.database.on('child_added', snap => {
       currentCards.push({
@@ -35,6 +36,7 @@ class App extends Component {
         cards: currentCards,
         currentCard: this.getRandomCard(currentCards)
       })
+
     })
   }
 
